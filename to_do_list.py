@@ -6,13 +6,18 @@ def display_menu():
     print("5. Exit")
 
 
-def add_task():
-    pass
+def add_task(tasks):
+    task = input("Enter a task: ")
+    tasks.append(task)
 
 
-def view_tasks():
-    pass
-
+def view_tasks(tasks):
+    if not tasks:
+        print("No tasks to view.")
+        return
+    
+    for task in tasks:
+        print(task)
 
 def mark_task_as_complete():
     pass
@@ -28,9 +33,9 @@ def main():
         display_menu()
         choice = input("Choose an option: ")
         if choice == '1':
-            add_task()
+            add_task(tasks)
         elif choice == '2':
-            view_tasks()
+            view_tasks(tasks)
         elif choice == '3':
             mark_task_as_complete()
         elif choice == '4':
