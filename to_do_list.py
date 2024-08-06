@@ -9,6 +9,7 @@ def display_menu():
 def add_task(tasks):
     task = input("Enter a task: ")
     tasks.append({"task": task, "completed": False})
+    print()
 
 
 def view_tasks(tasks):
@@ -19,22 +20,29 @@ def view_tasks(tasks):
     for index, task in enumerate(tasks):
         status = "Completed" if task["completed"] else "Not Completed"
         print(f"{index + 1}. {task['task']} - {status}")
+    print()
 
 
 def mark_task_as_complete(tasks):
     view_tasks(tasks)
     task_num = int(input("Enter the task number to mark as completed: ")) - 1
-    if task_num < 0 or task_num > len(tasks):
-        print("Invalid task number")
-    tasks[task_num]["completed"] = True
+    try:
+        if task_num < 0 or task_num > len(tasks):
+            print("Invalid task number")
+        tasks[task_num]["completed"] = True
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 def delete_task(tasks):
     view_tasks(tasks)
     task_num = int(input("Enter the task number to delete: ")) - 1
-    if task_num < 0 or task_num > len(tasks):
-        print("Invalid task number")
-    tasks.pop(task_num)
+    try:
+        if task_num < 0 or task_num > len(tasks):
+            print("Invalid task number")
+        tasks.pop(task_num)
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 def main():
