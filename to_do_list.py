@@ -29,8 +29,12 @@ def mark_task_as_complete(tasks):
     tasks[task_num]["completed"] = True
 
 
-def delete_task():
-    pass
+def delete_task(tasks):
+    view_tasks(tasks)
+    task_num = int(input("Enter the task number to delete: ")) - 1
+    if task_num < 0 or task_num > len(tasks):
+        print("Invalid task number")
+    tasks.pop(task_num)
 
 
 def main():
@@ -45,7 +49,7 @@ def main():
         elif choice == "3":
             mark_task_as_complete(tasks)
         elif choice == "4":
-            delete_task()
+            delete_task(tasks)
         elif choice == "5":
             print("Goodbye!")
             exit()
