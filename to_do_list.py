@@ -27,15 +27,15 @@ def main():
     while True:
         display_menu()
         choice = input("Choose an option: ")
-        if choice == 1:
+        if choice == '1':
             add_task()
-        elif choice == 2:
+        elif choice == '2':
             view_tasks()
-        elif choice == 3:
+        elif choice == '3':
             mark_task_as_complete()
-        elif choice == 4:
+        elif choice == '4':
             delete_task()
-        elif choice == 5:
+        elif choice == '5':
             print("Goodbye!")
             exit()
         else:
